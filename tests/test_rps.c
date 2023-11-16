@@ -6,7 +6,7 @@ void foo_test(void) {
     int x, y;
     
     // act
-    x = 1;
+    x = 0;
     y = 0;
     
     // assert
