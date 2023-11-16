@@ -6,10 +6,6 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		C5A5B28C2B058A4D0082F80D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C5A5B28A2B058A4D0082F80D /* main.c */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		C5A5B27A2B0587D00082F80D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -26,8 +22,10 @@
 		C5A5B27C2B0587D00082F80D /* rps */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rps; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5A5B2862B058A4D0082F80D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		C5A5B2872B058A4D0082F80D /* rps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = rps.xcodeproj; sourceTree = SOURCE_ROOT; };
-		C5A5B28A2B058A4D0082F80D /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = SOURCE_ROOT; };
 		C5A5B28B2B058A4D0082F80D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		C5A5B28D2B058BB70082F80D /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Makefile; sourceTree = SOURCE_ROOT; };
+		C5A5B28F2B058BBF0082F80D /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		C5A5B2972B05953E0082F80D /* test_rps.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = test_rps.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,9 +59,11 @@
 			isa = PBXGroup;
 			children = (
 				C5A5B2862B058A4D0082F80D /* LICENSE */,
-				C5A5B28A2B058A4D0082F80D /* main.c */,
+				C5A5B28D2B058BB70082F80D /* Makefile */,
 				C5A5B28B2B058A4D0082F80D /* README.md */,
 				C5A5B2872B058A4D0082F80D /* rps.xcodeproj */,
+				C5A5B2962B05953E0082F80D /* tests */,
+				C5A5B28E2B058BBF0082F80D /* src */,
 			);
 			path = rps;
 			sourceTree = "<group>";
@@ -72,6 +72,22 @@
 			isa = PBXGroup;
 			name = Products;
 			sourceTree = "<group>";
+		};
+		C5A5B28E2B058BBF0082F80D /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5B28F2B058BBF0082F80D /* main.c */,
+			);
+			path = src;
+			sourceTree = SOURCE_ROOT;
+		};
+		C5A5B2962B05953E0082F80D /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				C5A5B2972B05953E0082F80D /* test_rps.c */,
+			);
+			path = tests;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -136,7 +152,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C5A5B28C2B058A4D0082F80D /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
