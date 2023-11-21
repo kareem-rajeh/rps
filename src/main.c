@@ -13,13 +13,14 @@
     - scissor beats paper
  */
 
-typedef enum {lost=0, won=1} result;
+typedef enum {lost=0, won=1, tie=2} result;
 typedef enum {rock=1, paper=2, scissor=3} move;
 
-bool valid_input(int move);
+bool valid_input(int);
 move get_input(void);
-move get_random(void);
-result determine_winner(move user, move computer);
+move get_random(move);
+result determine_winner(move, move);
+char* determine_move_as_string(move);
 
 // returning won if user won else lost
 result determine_winner(move user, move computer) {
@@ -35,15 +36,18 @@ result determine_winner(move user, move computer) {
     {
         return won;
     }
+    else if (user == computer) {
+        return tie;
+    }
   
     return lost;
 }
 
-move get_random(void)
+move get_random(move player_move)
 {
     // reset rand to the current time
     srand(time(0));
-    return (rand() % 3) + 1;
+    return (rand() % 3) + 1;;
 }
 
 
@@ -79,17 +83,33 @@ bool valid_input(int _move) {
     return true;
 }
 
+char* determine_move_as_string(move _move_) {
+    if (_move_ == rock) {
+        return "rock";
+    }
+    else if (_move_ == paper) {
+        return "paper";
+    }
+    
+    return "scissor";
+}
 
 int main (int argc, char* argv[]) {
     printf("Hello Player: %s\n", argv[1]);
     move player_move = get_input();
-    move computer_move = get_random();
-    result winner = determine_winner(player_move, computer_move);
+    move computer_move = get_random(player_move);
+    result res = determine_winner(player_move, computer_move);
     
-    if (winner) {
+    if (res == tie) {
+        printf("It was a tie!\n");
+    }
+    else if (res == won) {
         printf("%s won!\n", argv[1]);
     }
-    else printf("You lost :(\n");
+    else printf("Computer chose %s, %s beats %s. You lost :(\n",
+                determine_move_as_string(computer_move),
+                determine_move_as_string(computer_move),
+                determine_move_as_string(player_move));
     
     return 0;
 }
